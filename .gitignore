@@ -71,6 +71,10 @@ progress_report_*.txt
 *.out
 
 
+# Ignore temporary Microsoft Office files
+~$*
+
+
 
 
 
