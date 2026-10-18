@@ -13,8 +13,7 @@
 ##SBATCH --gpus=rtx_4090:1
 
 ##SBATCH --mail-user=your_email@example.com	            ### user's email for sending job status messages
-#SBATCH --mail-user=your_email@example.com	            ### user's email for sending job status messages
-#SBATCH --mail-type=ALL			                        ### conditions for sending the email. ALL,BEGIN,END,FAIL, REQUEU, NONE
+##SBATCH --mail-type=ALL			                    ### conditions for sending the email. ALL,BEGIN,END,FAIL, REQUEU, NONE
 #SBATCH --mem=200G				                        ### ammount of RAM memory, allocating more than 60G requires IT team's permission
 ##SBATCH --mem-per-cpu=15G
 #SBATCH --cpus-per-task=12

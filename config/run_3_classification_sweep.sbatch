@@ -13,8 +13,8 @@
 #SBATCH --job-name=3_classification_sweep
 #SBATCH --output=../logs/%A_%a_%x.out
 #SBATCH --error=../logs/%A_%a_%x.err
-#SBATCH --mail-user=your_email@example.com
-#SBATCH --mail-type=END,FAIL
+##SBATCH --mail-user=your_email@example.com
+##SBATCH --mail-type=END,FAIL
 #SBATCH --mem=100G
 #SBATCH --cpus-per-task=5
 #SBATCH --array=1-35
