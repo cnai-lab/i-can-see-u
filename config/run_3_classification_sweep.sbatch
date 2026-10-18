@@ -13,7 +13,7 @@
 #SBATCH --job-name=3_classification_sweep
 #SBATCH --output=../logs/%A_%a_%x.out
 #SBATCH --error=../logs/%A_%a_%x.err
-#SBATCH --mail-user=amitner@post.bgu.ac.il
+#SBATCH --mail-user=your_email@example.com
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mem=100G
 #SBATCH --cpus-per-task=5
@@ -46,7 +46,7 @@ OUT_NOTEBOOK="../logs/${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}_${SLURM_JOB_N
 
 echo "Starting Papermill task ${SLURM_ARRAY_TASK_ID}..."
 
-if ! conda run --no-capture-output -n backbone_env_v2 \
+if ! conda run --no-capture-output -n i_can_see_u_env \
     papermill \
     "${IN_NOTEBOOK}" \
     "${OUT_NOTEBOOK}" \

@@ -1,3 +1,7 @@
+These commands are intended for the BGU HPC cluster.
+You may need to modify them to suit your specific software environment.
+
+
 ### Interactive Job ###
 ```bash
 sinteractive  --time 0-8:00:00  --gpu rtx_6000:1

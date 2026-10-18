@@ -14,8 +14,8 @@
 ##SBATCH --cpus-per-task=16
 
 ### Note: Lines are with ## are commented out
-##SBATCH --mail-user=idanmu@post.bgu.ac.il	        ### user's email for sending job status messages
-#SBATCH --mail-user=amitner@post.bgu.ac.il	        ### user's email for sending job status messages
+##SBATCH --mail-user=your_email@example.com	        ### user's email for sending job status messages
+#SBATCH --mail-user=your_email@example.com	        ### user's email for sending job status messages
 #SBATCH --mail-type=ALL			                    ### conditions for sending the email. ALL,BEGIN,END,FAIL, REQUEU, NONE
 #SBATCH --mem=80G				                    ### amount of RAM memory, allocating more than 60G requires IT team's permission
 
@@ -53,7 +53,7 @@ echo -e "\nMIN_TOPIC_SIZES:\t" $MIN_TOPIC_SIZES
 
 ### Start your code below ####
 module load anaconda				### load anaconda module
-source activate backbone_env_v2
+source activate i_can_see_u_env
 
 # papermill
 IN_NOTEBOOK="${SLURM_JOB_NAME}.ipynb"
@@ -64,4 +64,4 @@ if [ -n "$MIN_TOPIC_SIZES" ]; then
     PAPERMILL_ARGS+=(-y "min_topic_sizes: [$MIN_TOPIC_SIZES]")
 fi
 
-conda run -n backbone_env_v2 papermill "${IN_NOTEBOOK}" "${OUT_NOTEBOOK}" "${PAPERMILL_ARGS[@]}"
+conda run -n i_can_see_u_env papermill "${IN_NOTEBOOK}" "${OUT_NOTEBOOK}" "${PAPERMILL_ARGS[@]}"

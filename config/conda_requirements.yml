@@ -1,4 +1,4 @@
-name: backbone_env_v3
+name: i_can_see_u_env
 channels:
   - conda-forge
   - rapidsai
@@ -67,5 +67,5 @@ dependencies:
 
 ################ How to use? In terminal do: ################
 # conda env create -y -f ./config/conda_requirements.yml
-# conda activate backbone_env_v3
-# python -m ipykernel install --user --name backbone_env_v3 --display-name "backbone_env_v3"
+# conda activate i_can_see_u_env
+# python -m ipykernel install --user --name i_can_see_u_env --display-name "i_can_see_u_env"

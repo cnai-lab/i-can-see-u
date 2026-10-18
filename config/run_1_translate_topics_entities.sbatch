@@ -13,7 +13,7 @@
 #SBATCH --gpus=rtx_4090:1		                        ### number of GPUs, allocating more than 1 requires IT team's permission. Example to request 3090 gpu: #SBATCH --gpus=rtx_3090:1
 
 ### Note: Lines are with ## are commented out
-#SBATCH --mail-user=amitner@post.bgu.ac.il	            ### user's email for sending job status messages
+#SBATCH --mail-user=your_email@example.com	            ### user's email for sending job status messages
 #SBATCH --mail-type=ALL			                        ### conditions for sending the email. ALL,BEGIN,END,FAIL, REQUEU, NONE
 #SBATCH --mem=80G				                        ### RAM memory; use an explicit GiB suffix
 
@@ -51,14 +51,14 @@ echo -e "FORCE_RESTART:\t\t$FORCE_RESTART"
 
 ### Start your code below ####
 module load anaconda				### load anaconda module
-source activate backbone_env_v2
+source activate i_can_see_u_env
 
 # papermill
 IN_NOTEBOOK="${SLURM_JOB_NAME}.ipynb"
 
 OUT_NOTEBOOK="../logs/${SLURM_JOB_ID}_${SLURM_JOB_NAME}.ipynb"
 
-conda run -n backbone_env_v2 papermill \
+conda run -n i_can_see_u_env papermill \
     "${IN_NOTEBOOK}" \
     "${OUT_NOTEBOOK}" \
     -p input_data_path "$INPUT_FILE_PATH" \

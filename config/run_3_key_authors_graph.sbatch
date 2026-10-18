@@ -12,8 +12,8 @@
 #SBATCH --error=../logs/%j_%x.err
 ##SBATCH --gpus=rtx_4090:1
 
-##SBATCH --mail-user=idanmu@post.bgu.ac.il	            ### user's email for sending job status messages
-#SBATCH --mail-user=amitner@post.bgu.ac.il	            ### user's email for sending job status messages
+##SBATCH --mail-user=your_email@example.com	            ### user's email for sending job status messages
+#SBATCH --mail-user=your_email@example.com	            ### user's email for sending job status messages
 #SBATCH --mail-type=ALL			                        ### conditions for sending the email. ALL,BEGIN,END,FAIL, REQUEU, NONE
 #SBATCH --mem=200G				                        ### ammount of RAM memory, allocating more than 60G requires IT team's permission
 ##SBATCH --mem-per-cpu=15G
@@ -41,13 +41,13 @@ echo -e "INPUT_FILE_PATH:\t$INPUT_FILE_PATH"
 
 ### Start your code ###
 module load anaconda
-source activate backbone_env_v2
+source activate i_can_see_u_env
 
 IN_NOTEBOOK="${SLURM_JOB_NAME}.ipynb"
 OUT_NOTEBOOK="../logs/${SLURM_JOB_ID}_${SLURM_JOB_NAME}.ipynb"
 
 echo "Starting papermill..."
-if ! conda run --no-capture-output -n backbone_env_v2 \
+if ! conda run --no-capture-output -n i_can_see_u_env \
     papermill "${IN_NOTEBOOK}" "${OUT_NOTEBOOK}" \
     -p input_data_path "$INPUT_FILE_PATH"; then
     echo "ERROR: ${SLURM_JOB_NAME} failed during Papermill execution." >&2

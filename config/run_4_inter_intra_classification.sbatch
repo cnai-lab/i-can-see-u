@@ -10,7 +10,7 @@
 #SBATCH --job-name 4_inter_intra_classification
 #SBATCH --output=../logs/%j_%x.out
 #SBATCH --error=../logs/%j_%x.err
-#SBATCH --mail-user=amitner@post.bgu.ac.il
+#SBATCH --mail-user=your_email@example.com
 #SBATCH --mail-type=ALL
 ##SBATCH --mem=48G
 ##SBATCH --cpus-per-task=24
@@ -30,12 +30,12 @@ echo -e "Job name:\t\t$SLURM_JOB_NAME"
 echo -e "INPUT_FILE_PATH:\t$INPUT_FILE_PATH"
 
 module load anaconda
-source activate backbone_env_v2
+source activate i_can_see_u_env
 
 IN_NOTEBOOK="${SLURM_JOB_NAME}.ipynb"
 OUT_NOTEBOOK="../logs/${SLURM_JOB_ID}_${SLURM_JOB_NAME}.ipynb"
 
 echo "Starting papermill..."
-conda run -n backbone_env_v2 papermill "${IN_NOTEBOOK}" "${OUT_NOTEBOOK}" -p # input_data_path "$INPUT_FILE_PATH"
+conda run -n i_can_see_u_env papermill "${IN_NOTEBOOK}" "${OUT_NOTEBOOK}" -p # input_data_path "$INPUT_FILE_PATH"
 
 echo "Completed ${SLURM_JOB_NAME}!"
