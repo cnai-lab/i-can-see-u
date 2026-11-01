@@ -200,6 +200,27 @@ train/validation/test experiment for baseline comparisons.
 Some settings are defined outside Papermill's tagged parameter cells; review
 those cells directly when changing the analysis configuration.
 
+## How To Run
+
+Use the Linux/CUDA environment `i_can_see_u_env` defined in
+`config/conda_requirements.yml`.  
+See [config/config_README.md](config/config_README.md) for environment setup and
+Papermill usage, and [config/slurm_commends.md](config/slurm_commends.md) for
+BGU HPC submission commands.  
+**Run Steps 1-3 for each campaign before Step 4.**
+
+## Additional Implementation: Filtering Outside The Paper
+
+The notebooks retain exploratory filtering procedures that are **not part of
+this paper**. They restrict account graphs using topic-based key scores,
+core-number rankings, or sequential combinations of the two, allowing analysis
+of smaller account subsets. Author selection uses `top_percentage`
+(`top_percentages` in the sweep worker) on a 1-100 scale; `100` retains all
+accounts. For the paper's workflow, retain `top_percentage=100`,
+`top_percentages=[100]`, `graph_filtering_setting="all_authors"`, and
+`run_graph_filtering=False`.
+
+
 ## Input Data
 
 The experiments use [Labeled Datasets for Research on Information Operations](https://zenodo.org/records/14189193).
@@ -228,22 +249,8 @@ entity-reuse columns, topic assignments, and same-topic account relations from
 the enriched data. Exported sweep indicator files use `io_drive_label=1` for IO
 accounts, which is the opposite polarity of the input `is_control` flag.
 
-## How To Run
 
-Use the Linux/CUDA environment `i_can_see_u_env` defined in
-`config/conda_requirements.yml`.  
-See [config/config_README.md](config/config_README.md) for environment setup and
-Papermill usage, and [config/slurm_commends.md](config/slurm_commends.md) for
-BGU HPC submission commands.  
-**Run Steps 1-3 for each campaign before Step 4.**
+## Result Data
 
-## Additional Implementation: Filtering Outside The Paper
-
-The notebooks retain exploratory filtering procedures that are **not part of
-this paper**. They restrict account graphs using topic-based key scores,
-core-number rankings, or sequential combinations of the two, allowing analysis
-of smaller account subsets. Author selection uses `top_percentage`
-(`top_percentages` in the sweep worker) on a 1-100 scale; `100` retains all
-accounts. For the paper's workflow, retain `top_percentage=100`,
-`top_percentages=[100]`, `graph_filtering_setting="all_authors"`, and
-`run_graph_filtering=False`.
+See [Dataset Columns](docs/dataset_columns.md) for column names, when they are
+added, types, and descriptions across the pipeline.
